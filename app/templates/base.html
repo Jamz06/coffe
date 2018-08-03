@@ -1,0 +1,16 @@
+<html>
+    <head>
+        {% if title %}
+            <title>Территория чая и кофе - {{ title }}</title>
+        {% else %}
+            <title>Территория чая и кофе</title>
+        {% endif %}
+    </head>
+    <body>
+        {% block header %}
+        {% endblock %}
+
+        {% block content %} {% endblock %}
+
+    </body>
+</html>

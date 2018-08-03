@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block header %}
+<div>
+    Coffe:
+    <a href="/index">Главная</a>
+    <a href="/login">Вход</a>
+
+</div>
+<hr>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+{% endblock %}
+
+{% block content %}
+{% endblock %}
