@@ -19,6 +19,8 @@ migrate = Migrate(app, db)
 login = LoginManager(app)
 # Указание на функцию, куда отправлять незарегистрированных
 login.login_view = 'login'
+# Переопределение сообщения для незареганых
+login.login_message = "Пожалуйста, войдите чтобы перейти к просмотру."
 
 # Инициализация расширения Bootstrap
 bootstrap = Bootstrap(app)
