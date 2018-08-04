@@ -1,15 +1,14 @@
 {% extends "base.html" %}
 
 {% block header %}
-<div>
-    Coffe:
-    <a href="{{ url_for('index') }}">Главная</a>
-    <a href="{{ url_for('logout') }}">Выход</a>
+    <nav class="navbar navbar-default">
+        <div>
+            Coffe:
+            <a href="{{ url_for('index') }}">Главная</a>
+            <a href="{{ url_for('logout') }}">Выход</a>
 
-</div>
-
-<hr>
-
+        </div>
+    </nav>
 
 {% endblock %}
 

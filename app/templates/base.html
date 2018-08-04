@@ -1,26 +1,39 @@
-<html>
-    <head>
+{% extends 'bootstrap/base.html' %}
+
+    {% block title %}
         {% if title %}
-            <title>Территория чая и кофе - {{ title }}</title>
+            Территория чая и кофе - {{ title }}
         {% else %}
-            <title>Территория чая и кофе</title>
+            Территория чая и кофе
         {% endif %}
-    </head>
-    <body>
-
-        {% block header %}
-        {% endblock %}
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                <ul>
-                    {% for message in messages %}
-                        <li>{{ message }}</li>
-                    {% endfor %}
-                </ul>
+    {% endblock %}
+        {% block navbar %}
+            {% if current_user.username  %}
+                <nav class="navbar navbar-default">
+                    <div>
+                        Coffe:
+                        <a href="{{ url_for('index') }}">Главная</a>
+                        <a href="{{ url_for('logout') }}">Выход</a>
+            
+                    </div>
+                </nav>
             {% endif %}
-        {% endwith %}
+        {% endblock %}
 
-        {% block content %} {% endblock %}
+        {% block content %}
+                <div class="container">
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-info" role="alert">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
 
-    </body>
-</html>
+                        {% endif %}
+                    {% endwith %}
+                </div>
+            
+            {# содержимое приложения которое должно быть предоставлено в блоке app_content #}
+            {% block app_content %}{% endblock %}
+        {% endblock %}
