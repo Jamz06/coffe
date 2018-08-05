@@ -7,6 +7,15 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask_bootstrap import Bootstrap
+# from flask_admin import Admin
+
+
+
+# Navbar
+from flask_nav import Nav
+from flask_nav.elements import Navbar, View, Separator
+
+
 
 # Инициализация flask
 app = Flask(__name__)
@@ -27,7 +36,33 @@ login.login_message = "Пожалуйста, войдите чтобы пере�
 # Инициализация расширения Bootstrap
 bootstrap = Bootstrap(app)
 
+# Инициализация Админки
+#admin = Admin(app)
+
+
+
+nav = Nav()
+
+nav.init_app(app)
+
+@nav.navigation()
+def mynavbar():
+    return Navbar(
+        'Территория чая и кофе',
+        View(
+            'Главная',
+            'index'
+        ),
+        View(
+            'Выход',
+            'logout'
+        )
+
+    )
+
 # Подключение остальных
-from app import routes, models
+from app import routes, models, errors 
+
+#, admin
 
 

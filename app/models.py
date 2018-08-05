@@ -47,3 +47,8 @@ class Operation(db.Model):
 class Vid_op(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nazv = db.Column(db.String(28))
+
+
+# admin.add_view(ModelView(User, db.session))
+# admin.add_view(ModelView(Customer, db.session))
+

@@ -8,7 +8,11 @@
         {% endif %}
     {% endblock %}
         {% block navbar %}
+            
+            
             {% if current_user.username  %}
+                {{ nav.mynavbar.render() }}
+                {#
                 <nav class="navbar navbar-default">
                     <div class="container">
                         <div class="navbar-header">
@@ -35,7 +39,9 @@
             
                     </div>
                 </nav>
+                #}
             {% endif %}
+            
         {% endblock %}
 
         {% block content %}
